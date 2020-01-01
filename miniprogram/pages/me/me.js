@@ -1,11 +1,13 @@
-// miniprogram/pages/me/me.js
+const util = require('../../utils/util')
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo: null
   },
 
   /**
@@ -15,18 +17,34 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  onTapLogin(event) {
+    //console.log(event.detail.userInfo)
+    this.setData({
+      userInfo: event.detail.userInfo
+    })
+  },
 
+  onTapAddress(){
+    wx.showToast({
+      icon: 'none',
+      title: 'Not open yet',
+    })
+  },
+
+  onTapService() {
+    wx.showToast({
+      icon: 'none',
+      title: 'Not open yet',
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    util.getUserInfo().then(userInfo => {
+      this.setData({ userInfo: userInfo })
+    })
   },
 
   /**
