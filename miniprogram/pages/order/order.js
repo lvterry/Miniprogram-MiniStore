@@ -1,4 +1,5 @@
-// miniprogram/pages/order/order.js
+const util = require('../../utils/util')
+
 Page({
 
   /**
